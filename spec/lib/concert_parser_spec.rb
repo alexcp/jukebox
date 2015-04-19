@@ -9,9 +9,14 @@ RSpec.describe ConcertParser do
     end
   end
 
-  describe "#parse_artist_name" do
+  describe "#parse_artist_names" do
     it "should retrieve the artist name" do
-      expect(concert_parser.artist).to eq("make a change")
+      expect(concert_parser.artists).to eq(["make a change"])
+    end
+
+    it "should work with multiple artists" do
+      concert_parser = ConcertParser.new(["", "PAROXYSM + OBSOLETE MANKIND + ABITABYSS", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"])
+      expect(concert_parser.artists).to eq(["paroxysm", "obsolete mankind", "abitabyss"])
     end
   end
 

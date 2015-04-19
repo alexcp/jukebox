@@ -1,5 +1,5 @@
 class ConcertParser
-  attr_reader :artist, :date, :time, :venue, :price
+  attr_reader :artists, :date, :time, :venue, :price
 
   def self.parse data
     @concert_info = data.map do |concert_info|
@@ -8,7 +8,7 @@ class ConcertParser
   end
 
   def initialize concert_info
-    @artist = parse_artist_name concert_info[1]
+    @artists = parse_artist_name concert_info[1]
     @date   = parse_date concert_info[2]
     @time   = parse_time concert_info[3]
     @venue  = parse_venue_name concert_info[4]
@@ -18,7 +18,7 @@ class ConcertParser
   private
 
   def parse_artist_name string
-    string.downcase
+    string.downcase.split("+").map(&:strip)
   end
 
   def parse_date string
