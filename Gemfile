@@ -38,6 +38,9 @@ gem 'slim-rails'
 # Web scraper 
 gem 'mechanize'
 
+# Soundcloud api interface
+gem 'soundcloud'
+
 # Cron job
 gem 'whenever'
 
