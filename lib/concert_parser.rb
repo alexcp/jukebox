@@ -30,7 +30,7 @@ class ConcertParser
   private
 
   def parse_artist_name string
-    string.downcase.split("+").map(&:strip)
+    string.downcase.split(/\+|\,/).map(&:strip)
   end
 
   def parse_date string
