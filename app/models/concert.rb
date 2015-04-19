@@ -1,4 +1,7 @@
 class Concert < ActiveRecord::Base
-  validates :artist_id, :date, :time, :venue_id, presence: true
+  belongs_to :artist
+  belongs_to :venue
+
+  validates :artist, :date, :time, :venue, presence: true
   validates :price, numericality: true
 end
