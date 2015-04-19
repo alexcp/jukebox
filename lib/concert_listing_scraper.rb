@@ -1,5 +1,7 @@
 class ConcertListingScraper
-  def initialize source="http://www.cheapthrills.ca/news.html"
+  WEBSITE = "http://www.cheapthrills.ca/news.html"
+
+  def initialize source=WEBSITE
     @source = source
   end
 
