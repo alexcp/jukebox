@@ -50,5 +50,6 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-its'
-
+  
+  gem 'pry'
 end
