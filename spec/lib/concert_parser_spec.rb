@@ -1,11 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe ConcertParser do
-  let(:concert_parser){ConcertParser.new(["", "MAKE A CHANGE", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"])}
+  let(:default_data){["", "MAKE A CHANGE", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]}
+  let(:multiple_artists){["", "PAROXYSM + OBSOLETE MANKIND + ABITABYSS", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]}
+  let(:concert_parser){ConcertParser.new(default_data)}
 
-  describe "#parse" do
-    it "should create hash with concerts atributtes" do
-      expect(ConcertParser.parse([["", "MAKE A CHANGE", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]])).to have_at_least(1).concert_parser_instance
+  describe "class methods" do
+    describe "#parse" do
+      it "should create hash with concerts atributtes" do
+        expect(ConcertParser.parse([default_data])).to have_at_least(1).concert_parser_instance
+      end
+    end
+    describe "#save_all" do
+      it "should save all the records to the database" do
+        expect(ConcertParser.save_all([default_data, multiple_artists])).to be_truthy
+        expect(Artist.find_by(name: "make a change").concerts).to have(1).concert
+      end
+    end
+  end
+
+  describe "#save" do
+    it "should save the records to the data" do
+      expect(concert_parser.save).to be_truthy
     end
   end
 
@@ -15,7 +31,7 @@ RSpec.describe ConcertParser do
     end
 
     it "should work with multiple artists" do
-      concert_parser = ConcertParser.new(["", "PAROXYSM + OBSOLETE MANKIND + ABITABYSS", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"])
+      concert_parser = ConcertParser.new(multiple_artists)
       expect(concert_parser.artists).to eq(["paroxysm", "obsolete mankind", "abitabyss"])
     end
   end
