@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419155943) do
+ActiveRecord::Schema.define(version: 20150419161413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,5 +23,19 @@ ActiveRecord::Schema.define(version: 20150419155943) do
   end
 
   add_index "artists", ["name"], name: "index_artists_on_name", using: :btree
+
+  create_table "concerts", force: :cascade do |t|
+    t.integer  "artist_id",  null: false
+    t.date     "date",       null: false
+    t.time     "time",       null: false
+    t.integer  "price"
+    t.integer  "venue_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "concerts", ["artist_id"], name: "index_concerts_on_artist_id", using: :btree
+  add_index "concerts", ["date"], name: "index_concerts_on_date", using: :btree
+  add_index "concerts", ["venue_id"], name: "index_concerts_on_venue_id", using: :btree
 
 end
