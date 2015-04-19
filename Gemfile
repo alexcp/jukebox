@@ -47,5 +47,8 @@ group :development, :test do
 
   # Use rspec instead of test unit
   gem 'rspec-rails'
-end
+  gem 'rspec-collection_matchers'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-its'
 
+end
