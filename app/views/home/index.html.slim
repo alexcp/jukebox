@@ -5,9 +5,12 @@
         = f.search_field :artists_name_cont, class: "form-control", placeholder: "Search for an artist"
         .input-group-btn
           = f.submit "Search", class: "btn btn-primary"
+h1 Upcoming Concerts in Montreal
 hr
 - @concerts.each do |month, concerts|
-  h1
-    = link_to month, "##{month.downcase}_list", data: {toggle:"collapse"}
+  h2.concert_list_month
+    = link_to "##{month.downcase}_list", data: {toggle:"collapse"} do
+      = month
+      i.glyphicon.glyphicon-chevron-down
   .collapse.in id=("#{month.downcase}_list")
     = render concerts
