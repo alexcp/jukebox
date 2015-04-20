@@ -38,7 +38,7 @@ class ConcertParser
   end
 
   def parse_time string
-    Time.parse(string)
+    string
   end
 
   def parse_venue_name string

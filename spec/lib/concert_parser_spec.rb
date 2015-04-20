@@ -51,7 +51,7 @@ RSpec.describe ConcertParser do
 
   describe "#parse_time" do
     it "should parse the time from the given string" do
-      expect(concert_parser.time).to eq(Time.parse("17:00"))
+      expect(concert_parser.time).to eq("17:00")
     end
   end
 
