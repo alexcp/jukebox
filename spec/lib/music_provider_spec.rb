@@ -12,7 +12,7 @@ RSpec.describe MusicProvider do
     }]
     allow_any_instance_of(SoundCloud::Client).to receive(:get).and_return(canned_response)
   end
-  it "should be a singleton" do
-    expect(MusicProvider.instance.get_tracks_from_artist("borealis")).to eq(["http://soundcloud.com/origamisound/borealis-lover"])
+  it "should return the tracks urls for a given artist" do
+    expect(MusicProvider.instance.tracks_from_artist("borealis")).to eq(["http://soundcloud.com/origamisound/borealis-lover"])
   end
 end

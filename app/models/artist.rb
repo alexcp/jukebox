@@ -3,6 +3,6 @@ class Artist < ActiveRecord::Base
   has_and_belongs_to_many :concerts
 
   def tracks
-    MusicProvider.instance.get_tracks_from_artist(name)
+    MusicProvider.instance.tracks_from_artist(name)
   end
 end
