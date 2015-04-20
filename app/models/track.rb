@@ -7,4 +7,9 @@ class Track < ActiveRecord::Base
       create(track_info.merge(artist: artist))
     end
   end
+
+  def self.new_job artist_id
+    artist = Artist.find(artist_id)
+    new_track_for_artist(artist)
+  end
 end
