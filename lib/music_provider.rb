@@ -20,6 +20,6 @@ class MusicProvider
   private
 
   def client
-    @client ||= Soundcloud.new(client_id: 'af5c93f7d9225e62d65bc3f15cdc380b')
+    @client ||= Soundcloud.new(client_id: ENV["SOUNDCLOUD_CLIENT_ID"])
   end
 end
