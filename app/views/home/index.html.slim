@@ -1,3 +1,5 @@
 - @concerts.each do |month, concerts|
-  h1=month
-  = render concerts
+  h1
+    = link_to month, "##{month.downcase}_list", data: {toggle:"collapse"}
+  .collapse.in id=("#{month.downcase}_list")
+    = render concerts

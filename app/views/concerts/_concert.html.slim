@@ -3,13 +3,14 @@
     .row
       .col-md-1
         .date datetime=concert.date
-          h2= concert.date.strftime("%d")
-          h4= concert.date.strftime("%A")
+          .month= concert.date.strftime("%B")
+          .day= concert.date.strftime("%d")
+          .day_human= concert.date.strftime("%A")
       .col-md-7
         h3= display_artists_link(concert.artists)
       .col-md-3
-        = concert.venue.name.titleize
+        = link_to concert.venue.name.titleize, concert.venue
         br
         small= concert.time.strftime("%H:%M")
       .col-md-1
-        = concert.price
+        = display_price(concert.price)
