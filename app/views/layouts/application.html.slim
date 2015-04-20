@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content="Concerts in Montreal"
+    title 
+      | JukeBox
+    link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" rel="stylesheet" 
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+      = csrf_meta_tags
+  body
+    = render "layouts/navbar"
+    .container
+      = yield
+
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"

@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-body
+    .row
+      .col-md-1
+        .date datetime=concert.date
+          h2= concert.date.strftime("%d")
+          h4= concert.date.strftime("%A")
+      .col-md-7
+        h3= concert.artists.map{|x| x.name.titleize}.join(", ")
+      .col-md-3
+        = concert.venue.name.titleize
+        br
+        small= concert.time.strftime("%H:%M")
+      .col-md-1
+        = concert.price
