@@ -7,10 +7,13 @@
           .day= concert.date.strftime("%d")
           .day_human= concert.date.strftime("%A")
       .col-md-7
-        h3= display_artists_link(concert.artists)
-      .col-md-3
-        = link_to concert.venue.name.titleize, concert.venue
-        br
-        small= concert.time.strftime("%H:%M")
+        h3.artists_name= display_artists_link(concert.artists)
+      .col-md-3.venue_info
+        .venue
+          i.glyphicon.glyphicon-map-marker
+          = link_to concert.venue.name.titleize, concert.venue
+        .time
+          i.glyphicon.glyphicon-time
+          = concert.time.strftime("%H:%M")
       .col-md-1
-        = display_price(concert.price)
+        .ticket_price= display_price(concert.price)
