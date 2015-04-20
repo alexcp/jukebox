@@ -6,6 +6,6 @@ class MusicProvider
   end
 
   def get_tracks_from_artist artist_name
-    client.get('/tracks', q: artist_name).map{|x| x["permalink_url"]}
+    client.get('/tracks', q: artist_name).select{|x| x["title"].downcase.include? artist_name }.map{|x| x["permalink_url"]}
   end
 end
