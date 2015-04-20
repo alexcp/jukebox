@@ -1,6 +1,14 @@
 class MusicProvider
   include Singleton
 
+  def self.track_for_artist artist_name
+    if track = instance.tracks_from_artist(artist_name).first
+      if code = instance.embed_code(track)
+        {url: track, embed_code: code}
+      end
+    end
+  end
+
   def tracks_from_artist artist_name
     client.get('/tracks', q: artist_name).select{|x| x["title"].downcase.include? artist_name }.map{|x| x["permalink_url"]}
   end
