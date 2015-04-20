@@ -1,11 +1,7 @@
-= search_form_for @q, url: root_path do |f|
-  .row
-    .col-md-12
-      .input-group
-        = f.search_field :artists_name_cont, class: "form-control", placeholder: "Search for an artist"
-        .input-group-btn
-          = f.submit "Search", class: "btn btn-primary"
 h1 Upcoming Concerts in Montreal
+
+= render "layouts/search"
+
 hr
 - @concerts.each do |month, concerts|
   h2.concert_list_month
