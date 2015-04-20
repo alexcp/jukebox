@@ -45,7 +45,10 @@ gem 'soundcloud'
 gem 'whenever'
 
 # Queuing librairie
-gem "queue_classic", "~> 3.0.0"
+gem 'queue_classic', '~> 3.0.0'
+
+# Search
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

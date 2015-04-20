@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: bcce3a0d96789c656e1cad7e58f1da348f745a13
+  branch: rails-4.2
+  specs:
+    ransack (1.2.4)
+      actionpack (~> 4.2.0)
+      activerecord (~> 4.2.0)
+      activesupport (~> 4.2.0)
+      i18n
+      polyamorous (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,6 +118,8 @@ GEM
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
     pg (0.18.1)
+    polyamorous (1.2.0)
+      activerecord (>= 3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -233,6 +247,7 @@ DEPENDENCIES
   pry
   queue_classic (~> 3.0.0)
   rails (= 4.2.1)
+  ransack!
   rspec-activemodel-mocks
   rspec-collection_matchers
   rspec-its
