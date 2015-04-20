@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe ConcertParser do
   let(:default_data){["", "MAKE A CHANGE", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]}
   let(:multiple_artists){["", "PAROXYSM + OBSOLETE MANKIND + ABITABYSS", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]}
+  let(:canceled_show){["", "HOOKWORMS**cancelled*** ", "03-Apr-15", "21:00", "Theatre Plaza", "$40.10"]}
   let(:concert_parser){ConcertParser.new(default_data)}
 
   describe "class methods" do
@@ -40,6 +41,17 @@ RSpec.describe ConcertParser do
         ["", "PAROXYSM, OBSOLETE MANKIND, ABITABYSS", "03-Apr-15", "17:00", "Theatre Plaza", "$40.00"]
       )
       expect(concert_parser.artists).to eq(["paroxysm", "obsolete mankind", "abitabyss"])
+    end
+    
+    describe "additionnal info in name" do
+      let(:concert_parser){ConcertParser.new(canceled_show)}
+
+      it "should detect and remove information" do
+        expect(concert_parser.artists).to eq(["hookworms"])
+      end
+      it "should store the info in the additionnal info variable" do
+        expect(concert_parser.additionnal_info).to eq("cancelled")
+      end
     end
   end
 

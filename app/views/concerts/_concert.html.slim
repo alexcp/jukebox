@@ -8,6 +8,9 @@
           .day_human= concert.date.strftime("%A")
       .col-md-7
         h3.artists_name= display_artists_link(concert.artists)
+        - unless concert.additionnal_info.blank?
+          p.text-warning
+            = concert.additionnal_info.titleize
       .col-md-3.venue_info
         .venue
           i.glyphicon.glyphicon-map-marker
