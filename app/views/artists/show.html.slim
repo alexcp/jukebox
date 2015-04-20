@@ -1,0 +1,5 @@
+h1= @artist.name.titleize
+hr
+= display_embed_code(@artist)
+h4= "#{@artist.name.titleize} Concerts"
+= render @artist.concerts

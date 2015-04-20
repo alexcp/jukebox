@@ -6,7 +6,7 @@
           h2= concert.date.strftime("%d")
           h4= concert.date.strftime("%A")
       .col-md-7
-        h3= concert.artists.map{|x| x.name.titleize}.join(", ")
+        h3= display_artists_link(concert.artists)
       .col-md-3
         = concert.venue.name.titleize
         br
