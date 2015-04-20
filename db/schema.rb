@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420133724) do
+ActiveRecord::Schema.define(version: 20150420141736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20150420133724) do
 
   add_index "concerts", ["date"], name: "index_concerts_on_date", using: :btree
   add_index "concerts", ["venue_id"], name: "index_concerts_on_venue_id", using: :btree
+
+  create_table "queue_classic_jobs", id: :bigserial, force: :cascade do |t|
+    t.text     "q_name",                       null: false
+    t.text     "method",                       null: false
+    t.json     "args",                         null: false
+    t.datetime "locked_at"
+    t.integer  "locked_by"
+    t.datetime "created_at", default: "now()"
+  end
+
+  add_index "queue_classic_jobs", ["q_name", "id"], name: "idx_qc_on_name_only_unlocked", where: "(locked_at IS NULL)", using: :btree
 
   create_table "tracks", force: :cascade do |t|
     t.integer  "artist_id"
