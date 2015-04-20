@@ -6,7 +6,9 @@
           .month= concert.date.strftime("%B")
           .day= concert.date.strftime("%d")
           .day_human= concert.date.strftime("%A")
-      .col-md-7
+      .col-md-2
+        = display_concert_image(concert)
+      .col-md-5
         h3.artists_name= display_artists_link(concert.artists)
         - unless concert.additionnal_info.blank?
           p.text-warning

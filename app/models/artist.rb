@@ -5,6 +5,10 @@ class Artist < ActiveRecord::Base
 
   after_save :add_track
 
+  def artwork_url
+    track.try(:artwork_url)
+  end
+
   def add_track
     QC.enqueue("Track.new_track_for_artist", id)
   end
