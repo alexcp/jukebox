@@ -21,4 +21,5 @@
 
 every :day, at: '4am' do
   rake "concerts:add"
+  rake "worker:empty_queue"
 end
