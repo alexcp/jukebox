@@ -4,7 +4,7 @@ namespace "worker" do
     jobs_count = QC.count
     p "#{jobs_count} jobs to process..."
     if jobs_count > 0 
-      worker = QC::Worker.new 
+      worker = BackgroundWorker.new
       worker.work until QC.count == 0
     end
   end
