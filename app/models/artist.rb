@@ -6,6 +6,6 @@ class Artist < ActiveRecord::Base
   after_save :add_track
 
   def add_track
-    QC.enqueue("Track.new_job", id)
+    QC.enqueue("Track.new_track_for_artist", id)
   end
 end
