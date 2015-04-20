@@ -1,0 +1,15 @@
+first_concert:
+  date: <%= Date.parse("2015-04-20")%>
+  time: "20:30"
+  price: 2000
+  venue_id: 1
+second_concert:
+  date: <%= Date.parse("2015-04-21")%>
+  time: "20:30"
+  price: 2000
+  venue_id: 1
+past_concert:
+  date: <%= Date.parse("2015-04-18")%>
+  time: "20:30"
+  price: 2000
+  venue_id: 1

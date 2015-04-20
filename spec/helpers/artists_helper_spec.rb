@@ -1,15 +1,10 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ArtistsHelper. For example:
-#
-# describe ArtistsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ArtistsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:artist){artists(:mfdoom)}
+  describe "#display_artists_link" do
+    it "should display a link for each artist in the collection" do
+      expect(helper.display_artists_link([artist])).to eq("<a href=\"/artists/1\">Mf Doom</a>")
+    end
+  end
 end
