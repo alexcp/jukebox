@@ -1,24 +1,25 @@
-.panel.panel-default
-  .panel-body
-    .row
-      .col-md-1
-        .date datetime=concert.date
-          .month= concert.date.strftime("%B")
-          .day= concert.date.strftime("%d")
-          .day_human= concert.date.strftime("%A")
-      .col-md-2
-        = display_concert_image(concert)
-      .col-md-5
-        h3.artists_name= display_artists_link(concert.artists)
-        - unless concert.additionnal_info.blank?
-          p.text-warning
-            = concert.additionnal_info.titleize
-      .col-md-3.venue_info
-        .venue
-          i.glyphicon.glyphicon-map-marker
-          = link_to concert.venue.name.titleize, concert.venue
-        .time
-          i.glyphicon.glyphicon-time
-          = concert.time.strftime("%H:%M")
-      .col-md-1
-        .ticket_price= display_price(concert.price)
+- cache(cache_key_for_concert(concert)) do
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-1
+          .date datetime=concert.date
+            .month= concert.date.strftime("%B")
+            .day= concert.date.strftime("%d")
+            .day_human= concert.date.strftime("%A")
+        .col-md-2
+          = display_concert_image(concert)
+        .col-md-5
+          h3.artists_name= display_artists_link(concert.artists)
+          - unless concert.additionnal_info.blank?
+            p.text-warning
+              = concert.additionnal_info.titleize
+        .col-md-3.venue_info
+          .venue
+            i.glyphicon.glyphicon-map-marker
+            = link_to concert.venue.name.titleize, concert.venue
+          .time
+            i.glyphicon.glyphicon-time
+            = concert.time.strftime("%H:%M")
+        .col-md-1
+          .ticket_price= display_price(concert.price)
