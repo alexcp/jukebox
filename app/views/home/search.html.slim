@@ -1,0 +1,12 @@
+h1 Upcoming Concerts in Montreal
+
+= render "layouts/search"
+
+hr
+- @concerts.each do |month, concerts|
+  h2.concert_list_month
+    = link_to "##{month.downcase}_list", data: {toggle:"collapse"} do
+      = month
+      i.glyphicon.glyphicon-chevron-down
+  .collapse.in id=("#{month.downcase}_list")
+    = render concerts
