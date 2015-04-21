@@ -64,6 +64,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    dalli (2.7.4)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     domain_name (0.5.24)
@@ -258,6 +259,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  dalli
   dotenv-rails
   foreman
   jbuilder (~> 2.0)
