@@ -26,7 +26,7 @@ RSpec.describe ConcertParser do
     end
   end
 
-  describe "#parse_artist_names" do
+  describe "#_artist_names" do
     it "should retrieve the artist name" do
       expect(concert_parser.artists).to eq(["make a change"])
     end
@@ -55,25 +55,25 @@ RSpec.describe ConcertParser do
     end
   end
 
-  describe "#parse_date" do
+  describe "#date" do
     it "should parse the date from the given string" do
       expect(concert_parser.date).to eq(Date.parse("03-04-2015"))
     end
   end
 
-  describe "#parse_time" do
+  describe "#time" do
     it "should parse the time from the given string" do
       expect(concert_parser.time).to eq("17:00")
     end
   end
 
-  describe "#parse_venue_name" do
+  describe "#venue_name" do
     it "should retrieve the venue name" do
       expect(concert_parser.venue).to eq("theatre plaza")
     end
   end
 
-  describe "#parse_price" do
+  describe "#price" do
     it "should parse the price from a string" do
       expect(concert_parser.price).to eq(4000)
     end
