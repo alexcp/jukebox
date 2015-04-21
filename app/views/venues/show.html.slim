@@ -1,5 +1,15 @@
 h1= @venue.name.titleize
 #map-canvas data-venue=(@venue.name)
 hr
-h4= "Concerts at #{@venue.name.titleize}"
-= render @venue.concerts
+h2.concert_list_month
+  = link_to "#upcoming_concert", data: {toggle:"collapse"} do
+    = "Upcoming Concerts at #{@venue.name.titleize}"
+    i.glyphicon.glyphicon-chevron-down
+.collapse.in id=("upcoming_concert")
+  = render @concerts
+h2.concert_list_month
+  = link_to "#past_concert_list", data: {toggle:"collapse"} do
+    = "Past Concert at #{@venue.name.titleize}"
+    i.glyphicon.glyphicon-chevron-right
+.collapse id=("past_concert_list")
+  = render @past_concerts
