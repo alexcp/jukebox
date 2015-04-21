@@ -6,9 +6,7 @@ class ConcertParser
   end
 
   def self.save_all data
-    ActiveRecord::Base.transaction do
-      parse(data).each(&:save)
-    end
+    parse(data).each(&:save)
   end
 
   def initialize concert_info
