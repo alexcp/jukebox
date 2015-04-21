@@ -4,4 +4,5 @@ class Concert < ActiveRecord::Base
 
   validates :artists, :date, :time, :venue, presence: true
   validates :price, numericality: true
+  validates :venue, uniqueness: {scope: [:date, :time]}
 end

@@ -26,5 +26,10 @@ RSpec.describe Concert, type: :model do
       concert.price = "test"
       expect( concert ).to have_at_least(1).error_on(:price)
     end
+
+    it "should be a unique combination" do
+      new_concert = Concert.new(concert.attributes.except([:id,:created_at,:updated_at]))
+      expect(new_concert.valid?).to be_falsy
+    end
   end
 end
