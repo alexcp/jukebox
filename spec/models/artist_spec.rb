@@ -16,4 +16,11 @@ RSpec.describe Artist, type: :model do
       expect( artist ).to have_at_least(1).error_on(:name)
     end
   end
+
+  describe "#find_similar" do
+    let(:artist){artists(:mfdoom)}
+    it "should return a list of similar artist" do
+      expect(artist.find_similar).to be_a Array
+    end
+  end
 end

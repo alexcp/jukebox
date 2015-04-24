@@ -6,4 +6,8 @@ class Artist < ActiveRecord::Base
   def artwork_url
     track.try(:artwork_url)
   end
+
+  def find_similar
+    MusicService.find_similar_artists(self)    
+  end
 end

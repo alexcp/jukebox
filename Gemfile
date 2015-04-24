@@ -54,6 +54,9 @@ gem 'whenever'
 # Queuing librairie
 gem 'queue_classic', '~> 3.0.0'
 
+# Last fm api interface
+gem 'lastfm'
+
 # Search
 gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
 
